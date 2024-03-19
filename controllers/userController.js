@@ -69,6 +69,27 @@ const userController = {
         } catch(error) {
             response.status(500).json({ message: error.message });
         }
+    },
+
+    getUser: async (request, response) => {
+        try {
+            // get the user id from the request
+            const userId = request.userId;
+
+            // get the user from the database
+            const user = await User.findById(userId).select('-passwordHash -__v -_id');
+
+            // if the user does not exist, return an error
+            if (!user) {
+                return response.status(400).json({ message: 'User not found' });
+            }
+
+            // return the user
+            response.json({ messsage: 'User found', user });
+            
+        } catch(error) {
+            response.status(500).json({ message: error.message });
+        }
     }
 }
 
