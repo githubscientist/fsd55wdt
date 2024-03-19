@@ -65,6 +65,14 @@ const userController = {
                 name: user.name,
             }, config.JWT_SECRET);
 
+            // set a cookie with the token
+            response.cookie('token', token, {
+                httpOnly: true,
+                sameSite: 'strict',
+                expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24 hours from now
+                secure: true,
+            });
+
             response.json({ message: 'User logged in', token });
         } catch(error) {
             response.status(500).json({ message: error.message });
