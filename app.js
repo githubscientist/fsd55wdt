@@ -4,6 +4,8 @@ const express = require('express');
 const cors = require('cors');
 // require the user routes
 const userRouter = require('./routes/userRoutes');
+// require the job routes
+const jobRouter = require('./routes/jobRoutes');
 // require morgan for logging
 const morgan = require('morgan');
 // require cookie-parser for parsing cookies
@@ -26,6 +28,7 @@ app.use(express.json());
 // routes middlewares
 // define the endpoints
 app.use('/api/users', userRouter);
+app.use('/api/jobs', jobRouter);
 
 // export the app
 module.exports = app;

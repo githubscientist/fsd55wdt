@@ -4,14 +4,15 @@ Application: Job Portal System
 
 ## Features
 
-- User Registration
-- User Login
-- User Profile
+- User Registration [x]
+- User Login [x]
+- User Profile [x]
 - Admin Dashboard
-  - Add Job
-  - View Job
-  - Update Job
-  - Delete Job
+  - Add Job [x]
+  - View Job [x]
+  - Update Job [x]
+  - Delete Job [x]
+  - View all Jobs [x]
 - User Dashboard
   - View All Jobs
   - View Job Details

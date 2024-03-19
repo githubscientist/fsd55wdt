@@ -7,7 +7,7 @@ const userController = {
     signup: async (request, response) => {
         try {
             // get the user inputs from the request body
-            const { username, password, name } = request.body;
+            const { username, password, name, location } = request.body;
 
             // check if the user already exists in the database
             const user = await User.findOne({ username });
@@ -25,13 +25,20 @@ const userController = {
                 username,
                 passwordHash,
                 name,
+                location,
             });
 
             // save the user to the database
             const savedUser = await newUser.save();
 
             // return the saved user
-            response.json({ message: 'User created', user: savedUser });
+            response.json({
+                message: 'User created', user: {
+                    username: savedUser.username,
+                    name: savedUser.name,
+                    location: savedUser.location,
+                    role: savedUser.role,
+            } });
         } catch (error) {
             response.status(500).json({ message: error.message });
         }
