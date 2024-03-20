@@ -21,6 +21,7 @@ const app = express();
 app.use(cors({
     origin: 'https://fsd55fe.netlify.app',
     credentials: true,
+    sameSite: 'none',
 }));
 // use morgan for logging
 app.use(morgan('dev'));
