@@ -75,7 +75,7 @@ const userController = {
             // set a cookie with the token
             response.cookie('token', token, {
                 httpOnly: true,
-                sameSite: 'strict',
+                sameSite: 'none',
                 expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24 hours from now
                 secure: true,
             });
