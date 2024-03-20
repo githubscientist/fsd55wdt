@@ -17,7 +17,10 @@ const app = express();
 
 // middlewares
 // use the cors middleware
-app.use(cors());
+app.use(cors({
+    origin: 'http://fsd55fe.netlify.app',
+    credentials: true
+}));
 // use morgan for logging
 app.use(morgan('dev'));
 // use cookie-parser

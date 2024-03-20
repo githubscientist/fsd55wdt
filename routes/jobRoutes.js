@@ -4,9 +4,9 @@ const jobController = require('../controllers/jobController');
 const auth = require('../middleware/auth');
 
 // define the endpoints
-jobRouter.post('/createJob', auth.verifyToken, jobController.createJob);
-jobRouter.get('/getAllJobs', auth.verifyToken, jobController.getAllJobs);
-jobRouter.get('/getJob/:id', auth.verifyToken, jobController.getJob);
+jobRouter.post('/', auth.verifyToken, jobController.createJob);
+jobRouter.get('/', auth.verifyToken, jobController.getAllJobs);
+jobRouter.get('/:id', auth.verifyToken, jobController.getJob);
 
 // export the router
 module.exports = jobRouter;
