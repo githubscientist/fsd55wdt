@@ -10,6 +10,8 @@ const auth = {
             // const token = request.headers.authorization;
             const token = request.cookies.token;
 
+            console.log(token);
+
             // if the token is missing, return an error
             if (!token) {
                 return response.status(401).json({ message: 'Token missing' });
